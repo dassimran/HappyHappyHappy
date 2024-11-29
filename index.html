@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Webpage</title>
+    <style>
+        body {
+            font-family: "Segoe Script", cursive; /* Cursive font */
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Soft background color */
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin: 5px 0;
+        }
+        .calendar-container {
+            margin-top: 20px;
+        }
+        .day-initials {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            max-width: 600px;
+            margin: auto;
+            font-weight: bold;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            max-width: 600px;
+            margin: 10px auto;
+        }
+        .calendar div,
+        .day-initials div {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .birthday {
+            background-color: #ffe0e6;
+            position: relative;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .moon img {
+            width: 200px;
+            border-radius: 10px;
+        }
+        .qr img {
+            width: 150px;
+            border: 1px solid #ddd;
+        }
+        .photos img {
+            width: 150px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .note {
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff5d7;
+            border: 1px solid #e0c785;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        /* Popup styles */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            position: relative;
+            background-color: #1e3a8a; /* Dark blue */
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            animation: popup-show 1s ease-in-out;
+        }
+
+        .popup-content h1 {
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+
+        .popup-content p {
+            font-size: 1.5em;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+
+        .popup-content .close-btn {
+            background: #f0f8ff;
+            border: none;
+            color: #1e3a8a;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @keyframes popup-show {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="popup" id="birthdayPopup">
+        <div class="popup-content">
+            <h1>Happy Birthday!</h1>
+            <p>To someone who makes life magical, this is your special day! ❤️</p>
+            <button class="close-btn" onclick="closePopup()">Celebrate Now!</button>
+        </div>
+    </div>
+
+    <h1>Happy Birthday!</h1>
+    <h2>It's Your Day</h2>
+    <h2>December</h2>
+
+    <!-- Calendar Section -->
+    <div class="calendar-container">
+        <div class="day-initials">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+        <div class="calendar"></div>
+    </div>
+
+    <div class="section moon">
+        <img src="C:\Users\Simran\Desktop\HappyHappyHappy\assets\phase-12.webp" alt="Moon Phase">
+        <p>Moon Phase on December 15, 2002</p>
+    </div>
+
+    <div class="section qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.jiosaavn.com/song/tu-hain-toh-neeti-mohan-version-from-mr.-and-mrs.-mahi/RCceZzpZWFk" alt="Music QR Code">
+        <p>Scan to listen on JioSaavn!</p>
+    </div>
+
+    <div class="section photos">
+        <img src="assets/photo_2024-11-27_12-56-55.jpg" alt="Photo 1">
+    </div>
+
+    <div class="note">
+        <p>Happy Birthday to the love of my life, my best friend, my everything, and my safe place!
+
+            You mean the world to me, not just as my partner but as the reason behind my smiles, my strength, and my happiness. Without sharing my day with you, I can’t even sleep—it feels incomplete without you. You are my mood maker, my calm in every storm, and the one who tolerates all my highs and lows with so much patience and love. You’ve given me so much more than I ever imagined, and meeting you feels like finding the best part of my journey after my father.
+            
+            On this special day, I want to remind you how much I believe in you. You are destined for greatness, and I know you’ll achieve everything you’ve ever dreamed of. May this year bring you closer to all your goals and make your parents, your family, and even me proud of all your accomplishments. Your dedication, kindness, and resilience inspire me every day, and I can’t wait to see you shine brighter than ever.
+            
+            Thank you for being you—today is all about celebrating how amazing you are, my forever person! I love you endlessly.❤️
+            
+            </p>
+    </div>
+
+    <script>
+        // Generate Calendar
+        const generateCalendar = () => {
+            const calendarDiv = document.querySelector('.calendar');
+            const year = 2002;
+            const month = 11; // December (0-indexed)
+            const birthday = 15; // Birthday on 15th December
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Add gap for the first days
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDiv = document.createElement('div');
+                calendarDiv.appendChild(emptyDiv);
+            }
+
+            // Add days
+            for (let date = 1; date <= daysInMonth; date++) {
+                const dayDiv = document.createElement('div');
+                if (date === birthday) {
+                    dayDiv.textContent = "❤️"; // Heart for 15th
+                    dayDiv.classList.add('birthday');
+                } else {
+                    dayDiv.textContent = date;
+                }
+                calendarDiv.appendChild(dayDiv);
+            }
+        };
+
+        // Show Stars
+        const closePopup = () => {
+            const popup = document.getElementById('birthdayPopup');
+            popup.style.display = 'none';
+        };
+
+        // Generate calendar on page load
+        generateCalendar();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
